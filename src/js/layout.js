@@ -1,14 +1,24 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import ScrollToTop from "./component/scrollToTop";
+import { Navbar } from "./component/navbar";
+import { Footer } from "./component/footer";
+import Characters  from "./component/characters"
+import Planets from "./component/planets";
+import Vehicles from "./component/vehicles"
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
+import CharDetails from "./views/CharDetails.jsx";
+import VehiclesDetails from "./views/VehiclesDetails.jsx";
+import PlanetsDetails from "./views/PlanetsDetails.jsx";
+
+
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+
 
 //create your first component
 const Layout = () => {
@@ -24,6 +34,24 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+						<Route exact path="/characters">
+							<Characters />
+						</Route>
+						<Route exact path="/characters/:theid">
+							<CharDetails />
+						</Route>
+						<Route exact path="/planets">
+							<Planets />
+						</Route>
+						<Route exact path="/planets/:theid">
+							<PlanetsDetails />
+						</Route>
+						<Route exact path="/vehicles">
+							<Vehicles />
+						</Route>
+						<Route exact path="/vehicles/:theid">
+							<VehiclesDetails />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
